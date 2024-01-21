@@ -2,10 +2,18 @@ import React from "react";
 
 import { useNavigate } from "react-router-dom";
 
+import { useGoogleLogin } from "@react-oauth/google";
+
 import { Button, Img, List, Text } from "components";
 
 const LandingPageHeader = (props) => {
   const navigate = useNavigate();
+  const googleSignIn = useGoogleLogin({
+    onSuccess: (res) => {
+      console.log("res", res);
+      alert("Login successfull. 😍");
+    },
+  });
 
   return (
     <>
@@ -109,7 +117,10 @@ const LandingPageHeader = (props) => {
                 Search
               </div>
             </Button>
-            <Button className="bg-gray-900 cursor-pointer font-manrope font-semibold py-2.5 rounded-[10px] text-base text-center text-white-A700 w-full">
+            <Button
+              className="common-pointer bg-gray-900 cursor-pointer font-manrope font-semibold py-2.5 rounded-[10px] text-base text-center text-white-A700 w-full"
+              onClick={() => googleSignIn()}
+            >
               Log in
             </Button>
           </div>
