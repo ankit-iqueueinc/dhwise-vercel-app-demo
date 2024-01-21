@@ -1,8 +1,20 @@
 import React from "react";
 
+import { useNavigate } from "react-router-dom";
+
+import { useGoogleLogin } from "@react-oauth/google";
+
 import { Img, Text } from "components";
 
 const LandingPageFooter = (props) => {
+  const navigate = useNavigate();
+  const googleSignIn = useGoogleLogin({
+    onSuccess: (res) => {
+      console.log("res", res);
+      alert("Login successfull. 😍");
+    },
+  });
+
   return (
     <>
       <footer className={props.className}>
@@ -92,26 +104,30 @@ const LandingPageFooter = (props) => {
                 </Text>
                 <div className="flex flex-col gap-3.5 items-start justify-start w-full">
                   <Text
-                    className="text-base text-gray-900 w-full"
+                    className="common-pointer text-base text-gray-900 w-full"
                     size="txtManropeSemiBold16"
+                    onClick={() => navigate("/")}
                   >
                     Home v1
                   </Text>
                   <Text
-                    className="text-base text-gray-900 w-full"
+                    className="common-pointer text-base text-gray-900 w-full"
                     size="txtManropeSemiBold16"
+                    onClick={() => navigate("/")}
                   >
                     Home v2
                   </Text>
                   <Text
-                    className="text-base text-gray-900 w-full"
+                    className="common-pointer text-base text-gray-900 w-full"
                     size="txtManropeSemiBold16"
+                    onClick={() => navigate("/aboutus")}
                   >
                     About
                   </Text>
                   <Text
-                    className="text-base text-gray-900 w-full"
+                    className="common-pointer text-base text-gray-900 w-full"
                     size="txtManropeSemiBold16"
+                    onClick={() => navigate("/contactpage")}
                   >
                     Contact
                   </Text>
@@ -132,14 +148,16 @@ const LandingPageFooter = (props) => {
                 </Text>
                 <div className="flex flex-col gap-3.5 items-start justify-start w-full">
                   <Text
-                    className="text-base text-gray-900 w-full"
+                    className="common-pointer text-base text-gray-900 w-full"
                     size="txtManropeSemiBold16"
+                    onClick={() => navigate("/listing")}
                   >
                     Listing v1
                   </Text>
                   <Text
-                    className="text-base text-gray-900 w-full"
+                    className="common-pointer text-base text-gray-900 w-full"
                     size="txtManropeSemiBold16"
+                    onClick={() => navigate("/listingmapview")}
                   >
                     Listing v2
                   </Text>
@@ -150,14 +168,16 @@ const LandingPageFooter = (props) => {
                     Property Details
                   </Text>
                   <Text
-                    className="text-base text-gray-900 w-full"
+                    className="common-pointer text-base text-gray-900 w-full"
                     size="txtManropeSemiBold16"
+                    onClick={() => navigate("/agentlist")}
                   >
                     <>Agent List</>
                   </Text>
                   <Text
-                    className="text-base text-gray-900 w-full"
+                    className="common-pointer text-base text-gray-900 w-full"
                     size="txtManropeSemiBold16"
+                    onClick={() => navigate("/agentprofile")}
                   >
                     Agent Profile
                   </Text>
@@ -172,26 +192,30 @@ const LandingPageFooter = (props) => {
                 </Text>
                 <div className="flex flex-col gap-3.5 items-start justify-start w-full">
                   <Text
-                    className="text-base text-gray-900 w-full"
+                    className="common-pointer text-base text-gray-900 w-full"
                     size="txtManropeSemiBold16"
+                    onClick={() => navigate("/blogpage")}
                   >
                     Blog
                   </Text>
                   <Text
-                    className="text-base text-gray-900 w-full"
+                    className="common-pointer text-base text-gray-900 w-full"
                     size="txtManropeSemiBold16"
+                    onClick={() => navigate("/faq")}
                   >
                     FAQ
                   </Text>
                   <Text
-                    className="text-base text-gray-900 w-full"
+                    className="common-pointer text-base text-gray-900 w-full"
                     size="txtManropeSemiBold16"
+                    onClick={() => navigate("/privacypolicy")}
                   >
                     <>Privacy Policy</>
                   </Text>
                   <Text
-                    className="text-base text-gray-900 w-full"
+                    className="common-pointer text-base text-gray-900 w-full"
                     size="txtManropeSemiBold16"
+                    onClick={() => navigate("/license")}
                   >
                     License
                   </Text>
@@ -206,32 +230,37 @@ const LandingPageFooter = (props) => {
                 </Text>
                 <div className="flex flex-col gap-3.5 items-start justify-start w-full">
                   <Text
-                    className="text-base text-gray-900 w-full"
+                    className="common-pointer text-base text-gray-900 w-full"
                     size="txtManropeSemiBold16"
+                    onClick={() => googleSignIn()}
                   >
                     Log in
                   </Text>
                   <Text
-                    className="text-base text-gray-900 w-full"
+                    className="common-pointer text-base text-gray-900 w-full"
                     size="txtManropeSemiBold16"
+                    onClick={() => googleSignIn()}
                   >
                     Enter OTP
                   </Text>
                   <Text
-                    className="text-base text-gray-900 w-full"
+                    className="common-pointer text-base text-gray-900 w-full"
                     size="txtManropeSemiBold16"
+                    onClick={() => googleSignIn()}
                   >
                     New Password
                   </Text>
                   <Text
-                    className="text-base text-gray-900 w-full"
+                    className="common-pointer text-base text-gray-900 w-full"
                     size="txtManropeSemiBold16"
+                    onClick={() => googleSignIn()}
                   >
                     Reset Password
                   </Text>
                   <Text
-                    className="text-base text-gray-900 w-full"
+                    className="common-pointer text-base text-gray-900 w-full"
                     size="txtManropeSemiBold16"
+                    onClick={() => googleSignIn()}
                   >
                     Create Account
                   </Text>
