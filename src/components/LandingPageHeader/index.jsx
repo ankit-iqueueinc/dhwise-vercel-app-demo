@@ -1,8 +1,12 @@
 import React from "react";
 
+import { useNavigate } from "react-router-dom";
+
 import { Button, Img, List, Text } from "components";
 
 const LandingPageHeader = (props) => {
+  const navigate = useNavigate();
+
   return (
     <>
       <header className={props.className}>
@@ -28,7 +32,10 @@ const LandingPageHeader = (props) => {
               className="sm:flex-col flex-row gap-10 grid grid-cols-3"
               orientation="horizontal"
             >
-              <div className="flex flex-row gap-1.5 items-start justify-start w-[77px]">
+              <div
+                className="common-pointer flex flex-row gap-1.5 items-start justify-start w-[77px]"
+                onClick={() => navigate("/")}
+              >
                 <Text
                   className="text-base text-gray-900 w-auto"
                   size="txtManropeSemiBold16"
@@ -43,40 +50,46 @@ const LandingPageHeader = (props) => {
               </div>
               <div className="flex flex-row gap-1.5 items-start justify-start w-[77px]">
                 <Text
-                  className="text-base text-gray-900 w-auto"
+                  className="common-pointer text-base text-gray-900 w-auto"
                   size="txtManropeSemiBold16"
+                  onClick={() => navigate("/listing")}
                 >
                   Listing
                 </Text>
                 <Img
-                  className="h-4 w-4"
+                  className="common-pointer h-4 w-4"
                   src="images/img_arrowdown_gray_600.svg"
                   alt="arrowdown"
+                  onClick={() => navigate("/listingmapview")}
                 />
               </div>
               <div className="flex flex-row gap-1.5 items-start justify-start w-[77px]">
                 <Text
-                  className="text-base text-gray-900 w-auto"
+                  className="common-pointer text-base text-gray-900 w-auto"
                   size="txtManropeSemiBold16"
+                  onClick={() => navigate("/agentlist")}
                 >
                   Agents
                 </Text>
                 <Img
-                  className="h-4 w-4"
+                  className="common-pointer h-4 w-4"
                   src="images/img_arrowdown_gray_600.svg"
                   alt="arrowdown"
+                  onClick={() => navigate("/agentprofile")}
                 />
               </div>
             </List>
             <Text
-              className="text-base text-center text-gray-900 w-auto"
+              className="common-pointer text-base text-center text-gray-900 w-auto"
               size="txtManropeSemiBold16"
+              onClick={() => navigate("/propertydetails")}
             >
               Property{" "}
             </Text>
             <Text
-              className="text-base text-gray-900 w-auto"
+              className="common-pointer text-base text-gray-900 w-auto"
               size="txtManropeSemiBold16"
+              onClick={() => navigate("/blogpage")}
             >
               Blog
             </Text>
